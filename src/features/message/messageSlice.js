@@ -5,11 +5,12 @@ const apiUrl = "http://localhost:3000/api/v1/messages";
 export const fetchMessages = createAsyncThunk("messages/fetchMessages", async () => {
     const response = await fetch(apiUrl, {
         method: "GET",
+        mode: "cors",
         headers: {
             "Content-Type": "application/json",
             },
         });
-    console.log(response.json())
+    // console.log(response.json())
     return response.json();
     }
 );
@@ -17,10 +18,7 @@ export const fetchMessages = createAsyncThunk("messages/fetchMessages", async ()
 export const messagesReducer = createSlice({
     name: "messages",
     initialState: {
-        messages: [{
-            id: 1,
-            name: "Hello Rails with React",
-        }],
+        messages: [],
         status: null,
     },
     reducers: {},

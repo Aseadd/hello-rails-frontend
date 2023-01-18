@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import '../App.css'
 
 const Greeting = () => {
 
@@ -6,11 +7,11 @@ const Greeting = () => {
     console.log(message)
 
     return(
-        <div>
+        <div className="container">
             <h1>Random Greeting</h1>
-            {message.map((mes)=> {
-                return <p key={mes.id}>{mes.name}</p>
-            })}
+           
+            <p>{message.name}</p>
+           
     </div>
     )
 }
